@@ -3,21 +3,24 @@ package com.pavelg.tests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeTest;
 
 public abstract class BaseTest {
 
     protected WebDriver driver;
 
-    @BeforeClass
+    @BeforeTest
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         this.driver = new ChromeDriver();
     }
 
-    @AfterTest
+    @AfterClass
     public void tearDown(){
-        this.driver.quit();
+        if (this.driver != null) {
+            this.driver.quit();
+            this.driver = null;
+        }
     }
 }

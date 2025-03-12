@@ -1,0 +1,11 @@
+{
+  "firstName": "durik",
+  "lastName": "kirdunov",
+  "email": "mj@pop.com",
+  "password": "mj",
+  "street": "1321 main street",
+  "city": "miami",
+  "zip": "90001",
+  "passengersCount": "3",
+  "expectedPrice": "$1753 USD"
+}
