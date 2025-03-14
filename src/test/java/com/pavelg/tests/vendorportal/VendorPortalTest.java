@@ -3,6 +3,8 @@ package com.pavelg.tests.vendorportal;
 import com.pavelg.pages.vendorportal.DashboardPage;
 import com.pavelg.pages.vendorportal.LoginPage;
 import com.pavelg.tests.BaseTest;
+import com.pavelg.tests.utils.Config;
+import com.pavelg.tests.utils.Constants;
 import com.pavelg.tests.utils.JsonUtil;
 import com.pavelg.tests.vendorportal.model.VendorPortalTestData;
 import org.testng.Assert;
@@ -26,7 +28,7 @@ public class VendorPortalTest extends BaseTest {
 
     @Test
     public void loginTest(){
-        loginPage.goTo("https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/vendor-app/index.html");
+        loginPage.goTo(Config.get(Constants.VENDOR_PORTAL_URL));
         Assert.assertTrue(loginPage.isAt());
         loginPage.login(testData.username(), testData.password());
     }

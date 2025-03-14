@@ -3,6 +3,8 @@ package com.pavelg.tests.flightreservation;
 import com.pavelg.pages.flightreservation.*;
 import com.pavelg.tests.BaseTest;
 import com.pavelg.tests.flightreservation.model.FlightReservationTestData;
+import com.pavelg.tests.utils.Config;
+import com.pavelg.tests.utils.Constants;
 import com.pavelg.tests.utils.JsonUtil;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -22,7 +24,7 @@ public class FlightReservationTests extends BaseTest {
     @Test
     public void userRegistrationTest() {
         RegistrationPage registrationPage = new RegistrationPage(driver);
-        registrationPage.goTo("https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/reservation-app/index.html#");
+        registrationPage.goTo(Config.get(Constants.FLIGHT_RESERVATION_URL));
         Assert.assertTrue(registrationPage.isAt());
 
         registrationPage.enterUserDetails(testData.firstName(), testData.lastName());
