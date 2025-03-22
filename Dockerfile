@@ -7,19 +7,8 @@ RUN apk add curl jq
 WORKDIR /home/selenium-docker
 
 # Add the required files
-ADD target/docker-resources .
+ADD target/docker-resources     .
+ADD runner.sh                   runner.sh
 
-# Environment variables
-# BROWSER
-# HUB_HOST
-# TEST_SUITE
-# THREAD_COUNT
-
-# Run the tests
-ENTRYPOINT exec java -cp 'libs/*' \
-            -Dselenium.grid.enabled=true \
-            -Dselenium.grid.hubHost=${HUB_HOST} \
-            -Dbrowser=${BROWSER} \
-            org.testng.TestNG \
-            -threadcount ${THREAD_COUNT} \
-            test-suites/${TEST_SUITE}
+# Start the runner.sh
+ENTRYPOINT sh runner.sh
